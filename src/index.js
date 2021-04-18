@@ -1,7 +1,7 @@
 const { bip32, payments } = require('bitcoinjs-lib')
     , b58 = require('bs58check')
-		,	bip39 = require('bip39')
-		, { NETWORKS } = require('./constants')
+    , bip39 = require('bip39')
+    , { NETWORKS } = require('./constants')
 
 function fromMnemonic(mnemonic, password, isTestnet) {
   this.seed = bip39.mnemonicToSeedSync(mnemonic, password ? password : '')
