@@ -163,24 +163,10 @@ fromXPub.prototype.getAddress = function(index, isChange, purpose) {
   return payment.address
 }
 
-const test = new fromMnemonic('abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about', '')
-console.log(test.getRootPrivateKey())
-console.log(test.getRootPublicKey())
-const xprv = new fromXPrv(test.deriveAccount(0))
-console.log(xprv.getAccountPrvKey())
-console.log(xprv.getAccountPubKey())
-console.log(xprv.getPrvKey(0))
-console.log(xprv.getPubKey(0))
-console.log(xprv.getAddress(0))
-const xpub = new fromXPub(xprv.getAccountPubKey())
-console.log(xpub.getAccountPubKey())
-console.log(xpub.getPubKey(0))
-console.log(xpub.getAddress(0))
-
 module.exports = {
   generateMnemonic: bip39.generateMnemonic,
   entropyToMnemonic: bip39.entropyToMnemonic,
-  fromSeed: fromMnemonic,
-  fromZPrv: fromXPrv,
-  fromZPub: fromXPub
+  fromMnemonic: fromMnemonic,
+  fromXPrv: fromXPrv,
+  fromXPub: fromXPub
 }
