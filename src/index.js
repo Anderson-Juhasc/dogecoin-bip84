@@ -3,9 +3,10 @@ const { bip32, payments } = require('bitcoinjs-lib')
     , bip39 = require('bip39')
     , { NETWORKS } = require('./constants')
 
-function fromMnemonic(mnemonic, password, isTestnet) {
+function fromMnemonic(mnemonic, password, isTestnet, networks) {
   this.seed = bip39.mnemonicToSeedSync(mnemonic, password ? password : '')
-  this.network = isTestnet ? NETWORKS.testnet : NETWORKS.mainnet
+  this.networks = networks ? networks : NETWORKS
+  this.network = isTestnet ? this.networks.testnet : this.networks.mainnet
 }
 
 fromMnemonic.prototype.getRootPrivateKey = function() {
@@ -28,8 +29,8 @@ fromMnemonic.prototype.deriveAccount = function(index, changePurpose) {
   return account
 }
 
-function fromXPrv(xprv, isTestnet) {
-  this.network = isTestnet ? NETWORKS.testnet : NETWORKS.mainnet
+function fromXPrv(xprv, networks) {
+  this.networks = networks ? networks : NETWORKS
   this.xprv = this.toHD(xprv)
 }
 
@@ -40,12 +41,12 @@ fromXPrv.prototype.toHD = function (xprv) {
     , buf = Buffer.allocUnsafe(4)
     , buffer
 
-  if (Object.values(NETWORKS.mainnet.pubTypes).includes(version.toString('hex'))) {
-    this.network = NETWORKS.mainnet
+  if (Object.values(this.networks.mainnet.pubTypes).includes(version.toString('hex'))) {
+    this.network = this.networks.mainnet
   }
 
-  if (Object.values(NETWORKS.testnet.pubTypes).includes(version.toString('hex'))) {
-    this.network = NETWORKS.testnet
+  if (Object.values(this.networks.testnet.pubTypes).includes(version.toString('hex'))) {
+    this.network = this.networks.testnet
   }
 
   buf.writeInt32BE(this.network.bip32.private, 0)
@@ -102,7 +103,8 @@ fromXPrv.prototype.getAddress = function(index, isChange, purpose) {
   return payment.address
 }
 
-function fromXPub(xpub) {
+function fromXPub(xpub, networks) {
+  this.networks = networks ? networks : NETWORKS
 	this.xpub = this.toHD(xpub)
 }
 
@@ -113,12 +115,12 @@ fromXPub.prototype.toHD = function (xpub) {
     , buf = Buffer.allocUnsafe(4)
     , buffer
 
-  if (Object.values(NETWORKS.mainnet.pubTypes).includes(version.toString('hex'))) {
-    this.network = NETWORKS.mainnet
+  if (Object.values(this.networks.mainnet.pubTypes).includes(version.toString('hex'))) {
+    this.network = this.networks.mainnet
   }
 
-  if (Object.values(NETWORKS.testnet.pubTypes).includes(version.toString('hex'))) {
-    this.network = NETWORKS.testnet
+  if (Object.values(this.networks.testnet.pubTypes).includes(version.toString('hex'))) {
+    this.network = this.networks.testnet
   }
 
   buf.writeInt32BE(this.network.bip32.public, 0)
