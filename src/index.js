@@ -30,7 +30,7 @@ fromMnemonic.prototype.deriveAccount = function(index, changePurpose) {
 
 function fromXPrv(xprv, isTestnet) {
   this.network = isTestnet ? NETWORKS.testnet : NETWORKS.mainnet
-	this.xprv = this.toHD(xprv)
+  this.xprv = this.toHD(xprv)
 }
 
 fromXPrv.prototype.toHD = function (xprv) {
@@ -55,7 +55,7 @@ fromXPrv.prototype.toHD = function (xprv) {
 }
 
 fromXPrv.prototype.getAccountPrvKey = function() {
-	return this.xprv.toString()
+  return this.xprv.toString()
 }
 
 fromXPrv.prototype.getAccountPubKey = function() {
