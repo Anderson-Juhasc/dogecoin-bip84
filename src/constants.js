@@ -2,7 +2,7 @@ module.exports = {
   NETWORKS: {
     mainnet: {
       messagePrefix: '\x19Dogecoin Signed Message:\n',
-      bech32: 'dog',
+      bech32: 'dc',
       bip32: {
         public: 0x02facafd,
         private: 0x02fac398
@@ -17,7 +17,7 @@ module.exports = {
     },
     testnet: {
       messagePrefix: '\x19Dogecoin Signed Message:\n',
-      bech32: 'tog',
+      bech32: 'td',
       bip32: {
         public: 0x043587cf,
         private: 0x04358394
