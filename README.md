@@ -9,10 +9,10 @@ Run - `npm install dogecoin-bip84 --save`
 ## Using
 
 ```javascript
-const BIP84 = require('dogecoin-bip84')
+const { fromMnemonic, fromXPrv, fromXPub } = require('dogecoin-bip84')
 
 var mnemonic = 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about'
-var root = new BIP84.fromMnemonic(mnemonic)
+var root = new fromMnemonic(mnemonic)
 var child0 = root.deriveAccount(0)
 
 console.log('mnemonic:', mnemonic)
@@ -20,7 +20,7 @@ console.log('rootpriv:', root.getRootPrivateKey())
 console.log('rootpub:', root.getRootPublicKey())
 console.log('\n');
 
-var account0 = new BIP84.fromXPrv(child0)
+var account0 = new fromXPrv(child0)
 
 console.log("Account 0, root = m/84'/3'/0'");
 console.log('Account 0 xprv:', account0.getAccountPrvKey())
