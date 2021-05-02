@@ -9,7 +9,7 @@ Run - `npm install dogecoin-bip84 --save`
 ## Using
 
 ```javascript
-const { fromMnemonic, fromZPrv, fromZPub } = require('../src/index')
+const { fromMnemonic, fromZPrv, fromZPub } = require('dogecoin-bip84')
 
 var mnemonic = 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about'
 var root = new fromMnemonic(mnemonic, '')
