@@ -11,13 +11,13 @@ function fromMnemonic(mnemonic, password, isTestnet) {
 fromMnemonic.prototype = Object.create(BIP84.fromSeed.prototype)
 
 function fromZPrv(zprv) {
-  BIP84.fromZPrv.call(this, zprv, NETWORKS.pubTypes, NETWORKS)
+  BIP84.fromZPrv.call(this, zprv, false, NETWORKS)
 }
 
 fromZPrv.prototype = Object.create(BIP84.fromZPrv.prototype)
 
 function fromZPub(zpub) {
-  BIP84.fromZPub.call(this, zpub, NETWORKS.pubTypes, NETWORKS)
+  BIP84.fromZPub.call(this, zpub, false, NETWORKS)
 }
 
 fromZPub.prototype = Object.create(BIP84.fromZPub.prototype)

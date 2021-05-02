@@ -4,8 +4,6 @@ var mnemonic = 'abandon abandon abandon abandon abandon abandon abandon abandon 
 var root = new fromMnemonic(mnemonic, '')
 var child0 = root.deriveAccount(0)
 
-console.log(root)
-
 console.log('mnemonic:', mnemonic)
 console.log('rootpriv:', root.getRootPrivateKey())
 console.log('rootpub:', root.getRootPublicKey())
@@ -37,7 +35,7 @@ console.log('Pubkey:', account0.getPublicKey(0, false))
 console.log('Address:', account0.getAddress(0, false, 49))
 console.log('\n');
 
-var zpub = account0.getAccountPublicKey()
+var zpub = 'vpub5Vm8JiyeMgCWT2SqgFkoJyaovNQH8RCF3wAUKCrFAfRdVujdYubBrYUGtggtabj71XxvUQuS5r9AgT4VhGvax9gXEpdi9XBg7jHnvm1WDii'
 var account1 = new fromZPub(zpub)
 
 console.log("Account 1, root = m/84'/3'/0'");
