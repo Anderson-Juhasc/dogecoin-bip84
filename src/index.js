@@ -5,10 +5,10 @@ const { bip32 } = require('bitcoinjs-lib')
     , { NETWORKS } = require('./constants')
 
 function fromMnemonic(mnemonic, password, isTestnet) {
-  BIP84.fromSeed.call(this, mnemonic, password, isTestnet, 3)
+  BIP84.fromMnemonic.call(this, mnemonic, password, isTestnet, 3)
 }
 
-fromMnemonic.prototype = Object.create(BIP84.fromSeed.prototype)
+fromMnemonic.prototype = Object.create(BIP84.fromMnemonic.prototype)
 
 function fromZPrv(zprv) {
   BIP84.fromZPrv.call(this, zprv, false, NETWORKS)

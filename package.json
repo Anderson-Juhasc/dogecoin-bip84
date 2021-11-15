@@ -1,6 +1,6 @@
 {
   "name": "dogecoin-bip84",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Creates BIP84 keychains for Dogecoin mainnet and testnet",
   "main": "./src/index.js",
   "repository": {
