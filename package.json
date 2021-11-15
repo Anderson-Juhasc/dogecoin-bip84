@@ -22,7 +22,7 @@
   "author": "Anderson Juhasc",
   "license": "ISC",
   "dependencies": {
-    "bip84": "^0.2.5"
+    "bip84": "^0.2.7"
   },
   "funding": {
     "type": "individual",
